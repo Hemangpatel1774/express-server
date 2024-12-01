@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require('mongoose')
+const cors = require("cors");
 const { networkInterfaces } = require('os');
 const server = express();
-
+server.use(cors())
 // ==== get Local wifi ip address for Hostname :---
 const setHost = (nets) => {
     for (const name of Object.keys(nets)) {
@@ -35,7 +36,7 @@ server.get('/getUser', async (req, res) => {
     res.send(allUser)
 })
 server.delete('/deleteAll', async (req, res) => {
-    const allUser = await User.deleteMany();
+    const allUser = await User.deleteOne();
     res.send("all user removed..!")
 })
 const net = networkInterfaces();
