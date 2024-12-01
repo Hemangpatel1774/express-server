@@ -22,10 +22,11 @@ const User = mongoose.model("User", user);
 
 const dbCon = mongoose.connect("mongodb://localhost:27017/test");
 server.get('/', async (req, res) => {
-    console.log(req.ips);
-    const newUser = await User({ user: "hello", ip: req.ip });
-    newUser.save()
-    res.send("Your ip is :" + req.ip)
+    res.send("Hello")
+    // console.log(req.ips);
+    // const newUser = await User({ user: "hello", ip: req.ip });
+    // newUser.save()
+    // res.send("Your ip is :" + req.ip)
 })
 server.get('/getUser', async (req, res) => {
     const allUser = await User.find();
