@@ -20,7 +20,7 @@ const user = mongoose.Schema({
 })
 const User = mongoose.model("User", user);
 
-const dbCon = mongoose.connect("mongodb://localhost:27017/test");
+const dbCon = mongoose.connect("mongodb+srv://hemang:hemang1774@mycluster.noazrlx.mongodb.net/mernstack?retryWrites=true&w=majority&appName=myCluster/mernstack");
 server.get('/', async (req, res) => {
     res.send("Hello")
     // console.log(req.ips);
@@ -30,6 +30,8 @@ server.get('/', async (req, res) => {
 })
 server.get('/getUser', async (req, res) => {
     const allUser = await User.find();
+    console.log(allUser);
+    
     res.send(allUser)
 })
 server.delete('/deleteAll', async (req, res) => {
