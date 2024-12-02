@@ -39,8 +39,9 @@ server.delete('/deleteAll', async (req, res) => {
     res.send("all user removed..!")
 })
 server.post("/sendUser",(req,res)=>{
-    const data = req.body.name;
-    res.send("name is "+data)
+    const data = req.body;
+    console.log(data);
+    res.send("name is "+data.name+"age is "+data.age);
 })
 const net = networkInterfaces();
 const host = setHost(net)
