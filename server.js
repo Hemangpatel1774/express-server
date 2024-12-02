@@ -30,14 +30,16 @@ server.get('/', async (req, res) => {
     // res.send("Your ip is :" + req.ip)
 })
 server.get('/getUser', async (req, res) => {
-    const allUser = await User.find();
-    console.log(allUser);
-    
+    const allUser = await User.find();    
     res.send(allUser)
 })
 server.delete('/deleteAll', async (req, res) => {
     const allUser = await User.deleteOne();
     res.send("all user removed..!")
+})
+server.post("/sendUser",(req,res)=>{
+    const data = req.body;
+    res.send("data got it...!")
 })
 const net = networkInterfaces();
 const host = setHost(net)
