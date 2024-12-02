@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const cors = require("cors");
 const { networkInterfaces } = require('os');
 const server = express();
-server.use(cors())
+server.use(cors({origin:true}))
 // ==== get Local wifi ip address for Hostname :---
 const setHost = (nets) => {
     for (const name of Object.keys(nets)) {
