@@ -39,7 +39,7 @@ server.delete('/deleteAll', async (req, res) => {
 })
 server.post("/sendUser",(req,res)=>{
     const data = req.body;
-    res.send("data got it...!")
+    res.send("name is "+data.name)
 })
 const net = networkInterfaces();
 const host = setHost(net)
