@@ -4,6 +4,7 @@ const cors = require("cors");
 const { networkInterfaces } = require('os');
 const server = express();
 server.use(cors({origin:true}))
+server.use(express.json());
 // ==== get Local wifi ip address for Hostname :---
 const setHost = (nets) => {
     for (const name of Object.keys(nets)) {
